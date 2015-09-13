@@ -1,0 +1,62 @@
+def sort_string(string)
+  words = string.split
+  tracker = 0
+  ordered_words = []
+  word_length = 1
+  while tracker < words.length
+    words.each do |i|
+      if word_length == i.length
+        ordered_words << i
+        tracker += 1
+      end
+    end
+    word_length += 1
+  end
+  ordered_words.join(" ")
+end
+
+
+
+
+def palindrome?(sentence)
+  expression = sentence.downcase.split.join('') # Remove spaces and capital letters from sentence
+  result = true # Flag for whether sentence is palindrome
+  x = 0
+  y = expression.length - 1
+  
+  # Loop through string with x comparing from first letter and y comparing from last letter
+  while (x < expression.length / 2) && result == true
+    result = false if expression[x] != expression[y]
+    x += 1
+    y -= 1
+  end
+  
+  result
+end
+
+# ACTUAL CORRECT RESULT:
+
+def palindrome?(sentence)
+  expression = sentence.downcase.split.join('') #Remove spaces and capital letters from sentence
+  expression == expression.reverse
+end
+
+
+def kaprekar?(k)
+  square = (k ** 2).to_s
+  length = square.length
+  n = (length / 2) - 1
+  square[0..n].to_i + square[(n+1)..(length - 1)].to_i == k
+end
+
+
+def number_shuffle(number)
+  numbers = number.to_s.split(//)
+  result = []
+  possible_combinations = number.to_s.length == 3 ? 6 : 24
+  
+  result << numbers.shuffle.join.to_i while result.uniq.length != possible_combinations
+  
+  result.uniq.sort
+end
+
