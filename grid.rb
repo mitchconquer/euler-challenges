@@ -247,7 +247,7 @@ class Grid
 	# end # scan_vertical
 end
 
-test = Grid.new(width: 40, height: 41, series_length: 30)
+test = Grid.new(width: 20, height: 20, series_length: 5)
 test.scan_grid
 print "Winning product: "
 p test.winning_product
