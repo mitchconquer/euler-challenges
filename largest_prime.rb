@@ -1,5 +1,7 @@
 # Find largest prime factor of a number
 
+number = 600_851_475_143
+
 def get_largest_prime (number = 10, divisor = 2, primes = [])
 	
 	if number % divisor == 0
@@ -24,6 +26,8 @@ def is_prime? (number)
 	true
 end
 
-answer = get_largest_prime(600_851_475_143)
+puts 'Finding largest prime factor for ' + number.to_s
+
+answer = get_largest_prime(number)
 
 print answer
