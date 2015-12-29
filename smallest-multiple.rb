@@ -1,6 +1,7 @@
 # Find the smallest number evenly divisible by all numbers up to a max
 
 # Return array of prime factors of a number
+# ...using recursion!!
 def get_primes(number, all_factors = [], divisor = 2)
 	
 	unless number == 1
