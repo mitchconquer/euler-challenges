@@ -53,4 +53,10 @@ def get_largest_factors(palindrome = nil)
 	end
 end
 
-get_largest_factors
+def duration
+	start = Time.now
+	yield
+	puts 'Operation took ' + (Time.now - start).to_s + ' seconds'
+end
+
+duration {get_largest_factors}
