@@ -105,15 +105,15 @@ class Hanoi
 		from = request_from
 		to = request_to
 		
-		if !moves_valid?({ from: from, to: to })
+		if moves_valid?({ from: from, to: to })
+			move_disk({from: from, to: to})
+		else
 			puts ''
-			puts '!! Nerp, you can only put disks on empty piles or disks that are larger'.red
+			puts '!! Nerp, you can only put disks on empty piles or disks that are larger & you can\'t take from an empty pile'.red
 			puts ''
 			conduct_turn
 		end
-		
-		move_disk({from: from, to: to})
-		
+				
 		return false unless check_win
 		
 		puts ''
@@ -147,13 +147,13 @@ class Hanoi
 
 		if from == 1
 			disk1 = @pile1.first
-			disk1 = 0 if !disk1
+			return false if !disk1
 		elsif from == 2
 			disk1 = @pile2.first
-			disk1 = 0 if !disk1
+			return false if !disk1
 		else
 			disk1 = @pile3.first
-			disk1 = 0 if !disk1
+			return false if !disk1
 		end
 
 		if to == 1
