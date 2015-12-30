@@ -31,5 +31,5 @@ def num_to_s(num, base)
 end
 
 puts num_to_s(45, 2)
-puts num_to_s(3557, 2)
-puts num_to_s(333222323, 16)
+puts num_to_s(45, 8)
+puts num_to_s(45, 16)
