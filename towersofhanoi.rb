@@ -11,7 +11,9 @@ class Hanoi
 
 		add_disks
 
-		conduct_turn
+		until @won
+			conduct_turn
+		end
 	end
 
 	def add_disks
@@ -68,6 +70,8 @@ class Hanoi
 		if (!to.is_a? Integer) || (to > 3) || (to < 1)
 			puts 'Ummm, actually you can only pick one of the availble piles... soooo.... you wanna try again?'.red
 			puts ''
+			display
+			puts ''
 			to = request_to
 		end
 
@@ -99,18 +103,26 @@ class Hanoi
 		display
 		from = request_from
 		to = request_to
+		
 		if !moves_valid?({ from: from, to: to })
 			puts ''
 			puts '!! Nerp, you can only put disks on empty piles or disks that are larger'.red
 			puts ''
 			conduct_turn
 		end
+		
 		move_disk({from: from, to: to})
-		conduct_turn unless check_win
+		
+		return false unless check_win
+		
+		puts ''
+		display
 		puts ''
 		puts '  YASSS QUEEN!  You did it!  '.bg_gray.magenta.blink
-		display
+		puts ''
 		puts ('  YAS!  '.bg_gray.magenta.blink + '  YAS!  '.bg_magenta.gray.blink) * 50
+		
+		@won = true
 	end
 
 	def check_win
