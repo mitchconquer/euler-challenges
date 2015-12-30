@@ -30,6 +30,7 @@ def num_to_s(num, base)
 	return result	
 end
 
-puts num_to_s(45, 2)
-puts num_to_s(45, 8)
+puts num_to_s(2838238, 2)
+puts num_to_s(32932, 8)
 puts num_to_s(45, 16)
+puts num_to_s(45, 7)

@@ -27,9 +27,10 @@ class Hanoi
 			disks = add_disks
 		end
 
-		until @pile1.size >= disks
-			disk = rand(disks) + 1
-			@pile1.push disk if !@pile1.include?(disk)
+		disk = 1
+		until disk > disks
+			@pile1.push disk
+			disk += 1
 		end
 		
 		return disks
