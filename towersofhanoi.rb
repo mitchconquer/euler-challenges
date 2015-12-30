@@ -23,7 +23,7 @@ class Hanoi
 		puts ''
 
 		if (!disks.is_a? Integer) || (disks > 10) || (disks < 3)
-			puts 'Argghghh enter a number between 3 and 10 k thnx!'.red
+			puts 'Argghghh enter a number between 3 and 10 k tnx!'.red
 			puts ''
 			disks = request_disks
 		end
@@ -112,7 +112,7 @@ class Hanoi
 			move_disk({from: from, to: to})
 		else
 			puts ''
-			puts '!! Nerp, you can only put disks on empty piles or disks that are larger & you can\'t take from an empty pile'.red
+			puts "!! Nerp, you can only put disks on empty piles or disks \nthat are larger & you can't take from an empty pile".red
 			puts ''
 			conduct_turn
 		end
@@ -130,8 +130,7 @@ class Hanoi
 	end
 
 	def check_win
-		return false unless @pile1.empty?
-		return false unless @pile2.empty?
+		return false unless @pile1.empty? && @pile2.empty?
 		
 		upper = 0
 		lower = 0
