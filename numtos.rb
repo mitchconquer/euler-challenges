@@ -2,6 +2,7 @@
 # Transpose rows and columns
 
 def num_to_s(num, base)
+	return nil if (base < 2) || (base > 16)
 	base10 = num
 	big_nums = {"a" => 10,
 							"b" => 11,
