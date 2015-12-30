@@ -9,14 +9,15 @@ class Hanoi
 		@pile3 = []
 		@won = false
 
-		add_disks
+		add_disks(request_disks)
 
 		until @won
 			conduct_turn
 		end
 	end
 
-	def add_disks
+	def request_disks
+		disks = nil
 		puts 'How many disks would you like to use? (3 to 10)'
 		disks = gets.chomp.to_i
 		puts ''
@@ -24,16 +25,18 @@ class Hanoi
 		if (!disks.is_a? Integer) || (disks > 10) || (disks < 3)
 			puts 'Argghghh enter a number between 3 and 10 k thnx!'.red
 			puts ''
-			disks = add_disks
+			disks = request_disks
 		end
 
+		return disks
+	end	
+
+	def add_disks disks
 		disk = 1
 		until disk > disks
 			@pile1.push disk
 			disk += 1
 		end
-		
-		return disks
 	end
 
 	def display
