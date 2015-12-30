@@ -11,27 +11,25 @@ def num_to_s(num, base)
 							"e" => 14,
 							"f" => 15,}
 
-	# if base < 10
-		digits = []
+	digits = []
 
-		until base10 <= base
-			digits.unshift base10 % base
-			base10 = base10 / base
-			# puts 'base10 now = ' + base10.to_s
-		end
+	until base10 < base
+		digits.unshift base10 % base
+		base10 = base10 / base
+	end
 
-		digits.unshift base10
+	digits.unshift base10
 
-		result = ''
+	result = ''
 
-		digits.each do | x |
-			x = big_nums.key(x) if x > 9
-			result << x.to_s
-		end
+	digits.each do | x |
+		x = big_nums.key(x) if x > 9
+		result << x.to_s
+	end
 
-		return result
-	
+	return result	
 end
 
-puts num_to_s(38, 2)
+puts num_to_s(45, 2)
+puts num_to_s(3557, 2)
 puts num_to_s(333222323, 16)
